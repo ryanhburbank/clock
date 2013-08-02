@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="http://intridea.github.io/sketch.js/lib/sketch.min.js"></script>
+  <script>
+    var start = new Date;
+    console.log(start)
+
+    setInterval(function() {
+        // var time = (new Date).getTime();
+        // var time = $.now();
+        var d = new Date();
+        
+        if (d.getHours() < 10){
+          var hour = "0" + d.getHours();
+        }
+        else {
+          var hour = d.getHours();
+        }
+
+        if (d.getMinutes() < 10){
+          var minute = "0" + d.getMinutes();
+        }
+        else {
+          var minute = d.getMinutes();
+        }
+
+        if (d.getSeconds() < 10){
+          var second = "0" + d.getSeconds();
+        }
+        else {
+          var second = d.getSeconds();
+        }
+
+        $('body').css('background-color', '#'+ hour + minute + second);
+        $('#js-time').text("Le Time: " + hour +":"+ minute + ":" + second);
+        
+        
+        $('#js-time').css('color', "#FFFFFF").css('font-family','helvetica').css('font-size', 100).css('text-align', 'center').css('float', 'center').css('margin', 0).css('padding',0).css('display','block').css('border-bottom', '7px solid black')
+        $('button').css('padding','10px 50px').css('margin-top','10px')
+        $('.button').css('font-size','1.4em').css('text-decoration','none').css('font-weight','bold')
+        
+    }, 1000);
+
+
+  </script>
+
+  <script type="text/javascript">
+    $(function() {
+      $('#simple_sketch').sketch();
+    });
+  </script>
+
+
+
+  </head>
+  <body>
+    <h1 id='js-time' style='display: block'></h1>
+    <div id="test">
+      <div class="tools">
+        <button><a class="button" href="#simple_sketch" data-tool="marker">Marker</a></button>
+        <button><a class="button" href="#simple_sketch" data-tool="eraser">Eraser</a></button>
+      </div>
+    <canvas id="simple_sketch" width="1920" height="1080"></canvas>
+    </div>
+  </body>
+
+</html>
